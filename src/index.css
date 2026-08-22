@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&family=Special+Elite&display=swap');
 
 :root {
   --bg-dark: #0a0806;
@@ -8,7 +8,7 @@
   --ink-light: #22160a;
   --highlight: #7a1111;
   
-  --font-handwriting: 'Caveat', cursive;
+  --font-handwriting: 'Zeyada', cursive;
   --font-typewriter: 'Special Elite', monospace;
 }
 
