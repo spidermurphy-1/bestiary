@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Special+Elite&display=swap');
+
+:root {
+  --bg-dark: #0a0806;
+  --leather: #2a1a10;
+  --paper: #e6d3ba;
+  --ink: #0a0603; /* Much darker for better contrast */
+  --ink-light: #22160a;
+  --highlight: #7a1111;
+  
+  --font-handwriting: 'Caveat', cursive;
+  --font-typewriter: 'Special Elite', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--ink);
+  font-family: var(--font-handwriting);
+  font-size: 1.4rem; /* Slightly larger base font */
+  line-height: 1.4;
+  font-weight: 600; /* Bolder text for visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url('/assets/leather.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Journal Wrapper */
+.journal-wrapper {
+  width: 95vw;
+  max-width: 1300px;
+  height: 92vh;
+  background-image: url('/assets/paper2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 0 15px rgba(0,0,0,0.5);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pages */
+.page {
+  flex: 1;
+  padding: 4rem 5rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Added an overlay to the page content area to ensure contrast against dark spots on paper */
+.page-content-bg {
+  background-color: transparent;
+  padding: 0;
+  min-height: 100%;
+}
+
+.page-left {
+  box-shadow: inset -20px 0 30px -10px rgba(0,0,0,0.4), inset 5px 0 15px rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.3);
+}
+
+.page-right {
+  box-shadow: inset 20px 0 30px -10px rgba(0,0,0,0.4), inset -5px 0 15px rgba(0,0,0,0.2);
+}
+
+/* Custom Scrollbar for pages */
+.page::-webkit-scrollbar {
+  width: 8px;
+}
+.page::-webkit-scrollbar-track {
+  background: transparent;
+}
+.page::-webkit-scrollbar-thumb {
+  background-color: rgba(43, 31, 20, 0.6);
+  border-radius: 4px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: var(--font-typewriter);
+  color: var(--ink);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(10, 6, 3, 0.5);
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: var(--highlight);
+  font-family: var(--font-typewriter);
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  border: 2px solid var(--ink);
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-handwriting);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--ink);
+  padding-left: 0.5rem;
+}
+
+.search-input::placeholder {
+  color: rgba(10, 6, 3, 0.6);
+}
+
+/* Index List */
+.creature-list {
+  list-style: none;
+  min-height: 400px;
+}
+
+.creature-item {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  border-bottom: 2px dashed rgba(10, 6, 3, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.creature-item:hover {
+  background: rgba(0,0,0,0.08);
+  transform: translateX(10px);
+  color: var(--highlight);
+}
+
+/* Pagination */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+}
+
+.page-btn {
+  background: transparent;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-typewriter);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Sketch */
+.sketch-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sketch-img {
+  max-width: 100%;
+  max-height: 400px;
+  filter: sepia(100%) hue-rotate(330deg) saturate(150%) contrast(150%) brightness(80%) multiply;
+  mix-blend-mode: multiply;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.3);
+  transform: rotate(-2deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .journal-wrapper {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .journal-wrapper::before {
+    display: none;
+  }
+  .page {
+    overflow: visible;
+    padding: 2rem;
+  }
+}
